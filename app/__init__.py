@@ -14,7 +14,7 @@ db = SQLAlchemy()
 mail = Mail()
 
 def create_app(config_name):
-	app = Flask (__name__)
+	app = Flask (__name__)                    #创建flask实例
 	app.config.from_object(config[config_name])
 	config[config_name].init_app(app)
 

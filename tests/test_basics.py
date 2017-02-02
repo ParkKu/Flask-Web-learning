@@ -1,15 +1,15 @@
 #!/user/bin/env python
 #-*- coding: utf-8 -*-
 import unittest
-from flask import current_app
+from flask import current_app                       #使用config
 from app import create_app, db
 
 class BasicsTestCase(unittest.TestCase):
 	
 	def setUp(self):
 		self.app = create_app('testing')
-		self.app_context = self.app.app_context()
-		self.app_context.push()
+		self.app_context = self.app.app_context()    #激活上下文
+		self.app_context.push()                      #推送
 		db.create_all()
 
 	def tearDown(self):
@@ -21,5 +21,5 @@ class BasicsTestCase(unittest.TestCase):
 		self.assertFalse(current_app is None)
 		
 	def test_app_is_testing(self):
-		self.assertTrue(current_app.config['TESTING'])
+		self.assertTrue(current_app.config['TESTING'])  #推送后，才能使用current_app
 		

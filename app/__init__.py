@@ -20,7 +20,7 @@ login_manager.login_view = 'auth.login'
 
 def create_app(config_name):
 	app = Flask (__name__)                    #创建flask实例
-	app.config.from_object(config[config_name])
+	app.config.from_object(config[config_name])  #加载config
 	config[config_name].init_app(app)
 
 	bootstrap.init_app(app)
